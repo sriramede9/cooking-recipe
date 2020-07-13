@@ -35,8 +35,6 @@ export class RecipeServiceService {
 
   deleteRecipe(ditem: Recipe) {
     this.recipes = this.recipes.filter((x) => x !== ditem);
-    // return this.recipes.filter((x) => {
-    //   return x.id !== id;
-    // });
+    
   }
 }
