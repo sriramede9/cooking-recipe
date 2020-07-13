@@ -21,7 +21,7 @@ export class RecipePage implements OnInit {
   }
   onSelect(id: string) {
     // this.routerlink.red
-    console.log("this is the id", id);
+    // console.log("this is the id", id);
     this.router.navigate(["/recipe", id]);
   }
 }
