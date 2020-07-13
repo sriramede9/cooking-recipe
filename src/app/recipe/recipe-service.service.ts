@@ -32,4 +32,11 @@ export class RecipeServiceService {
       return rid === x.id;
     });
   }
+
+  deleteRecipe(ditem: Recipe) {
+    this.recipes = this.recipes.filter((x) => x !== ditem);
+    // return this.recipes.filter((x) => {
+    //   return x.id !== id;
+    // });
+  }
 }

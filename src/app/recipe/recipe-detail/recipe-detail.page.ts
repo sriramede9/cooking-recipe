@@ -32,4 +32,8 @@ export class RecipeDetailPage implements OnInit {
   onClickBack() {
     this.router.navigate(["/recipe"]);
   }
+
+  onDelete() {
+    this.recipeService.deleteRecipe(this.selectedRecipe);
+  }
 }
