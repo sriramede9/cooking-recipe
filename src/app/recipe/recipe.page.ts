@@ -17,7 +17,21 @@ export class RecipePage implements OnInit {
   ) {}
 
   ngOnInit() {
+    // this.recipes = this.recipeService.getRecipes();
+  }
+
+  ionViewWillEnter() {
+    console.log("will Enter");
     this.recipes = this.recipeService.getRecipes();
+  }
+  ionViewDidEnter() {
+    console.log("Did Enter!!");
+  }
+  ionViewWillLeave() {
+    console.log("will Leave");
+  }
+  ionViewDidLeave() {
+    console.log("Did Leave");
   }
   onSelect(id: string) {
     // this.routerlink.red

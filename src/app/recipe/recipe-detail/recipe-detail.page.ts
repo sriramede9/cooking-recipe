@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Recipe } from "./../../recipe.model";
 import { RecipeServiceService } from "./../recipe-service.service";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -9,7 +9,7 @@ import { AlertController } from "@ionic/angular";
   templateUrl: "./recipe-detail.page.html",
   styleUrls: ["./recipe-detail.page.scss"],
 })
-export class RecipeDetailPage implements OnInit {
+export class RecipeDetailPage implements OnInit, OnDestroy {
   selectedRecipe: Recipe;
 
   constructor(
@@ -31,8 +31,27 @@ export class RecipeDetailPage implements OnInit {
     // console.log(this.selectedRecipe);
   }
 
+  ionViewWillEnter() {
+    console.log("will Enter r-d");
+  }
+  ionViewDidEnter() {
+    console.log("Did Enter!! r-d");
+  }
+  ionViewWillLeave() {
+    console.log("will Leave r-d");
+  }
+  ionViewDidLeave() {
+    console.log("Did Leave r-d");
+  }
+
   onClickBack() {
     this.router.navigate(["/recipe"]);
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    console.log("On-Destroy is called on recipe-detail page");
   }
 
   onDelete() {
@@ -51,7 +70,7 @@ export class RecipeDetailPage implements OnInit {
             handler: () => {
               this.recipeService.deleteRecipe(this.selectedRecipe);
               this.onClickBack();
-            },  
+            },
           },
         ],
       })
